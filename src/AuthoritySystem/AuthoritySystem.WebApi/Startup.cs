@@ -1,3 +1,5 @@
+using AuthoritySystem.Model.Entity;
+using AuthoritySystem.WebApi.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,12 +27,19 @@ namespace AuthoritySystem.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region 初始化配置信息
+            Appsettings.Instance().Initaial(Configuration);
+            #endregion
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AuthoritySystem.WebApi", Version = "v1" });
             });
+
+            #region 扩展方法
+            services.AddCoreServiceProvider(Configuration);
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

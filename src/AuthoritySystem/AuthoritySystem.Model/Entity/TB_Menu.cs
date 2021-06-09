@@ -14,6 +14,11 @@ namespace AuthoritySystem.Model.Entity
         public Guid? ParentID { get; set; }
 
         /// <summary>
+        /// 菜单名称
+        /// </summary>
+        public string MenuName { get; set; }
+
+        /// <summary>
         /// 对应的dll文件
         /// </summary>
         public string Url { get; set; }

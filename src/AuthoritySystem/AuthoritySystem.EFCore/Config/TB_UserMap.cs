@@ -38,9 +38,9 @@ namespace AuthoritySystem.EFCore.Config
             builder.Property(p => p.LoginErrorCount).HasComment("错误登录次数");
 
             // 配置CreatedTime列的类型
-            builder.Property(p => p.CreateTime).HasColumnType("datetime").HasDefaultValueSql("GETDATE()").HasComment("创建时间");
+            builder.Property(p => p.CreateTime).IsRequired().HasComment("创建时间");
             // 配置UpdatedTime列为计算列
-            builder.Property(p => p.UpdateTime).HasColumnType("datetime").HasDefaultValueSql("GETDATE()").HasComment("更新时间");
+            builder.Property(p => p.UpdateTime).IsRequired().HasComment("更新时间");
             // 设置状态默认值
             builder.Property(p => p.Status).HasDefaultValue<int>(0).HasComment("用户状态 0：正常 1 冻结 2：注销 默认0");
             // 设置是否删除默认值

@@ -9,31 +9,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F332BEA0-2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{B9181CA0-00AC-43DA-9580-A6ED90BF0F1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthoritySystem.WebApi", "AuthoritySystem.WebApi\AuthoritySystem.WebApi.csproj", "{E4B13E07-A648-462E-ACF3-F517548EAE54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthoritySystem.WebApi", "AuthoritySystem.WebApi\AuthoritySystem.WebApi.csproj", "{E4B13E07-A648-462E-ACF3-F517548EAE54}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainLayer", "DomainLayer", "{A9A7C114-2E47-4A62-89D0-B261AB7AE0EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthoritySystem.Model", "AuthoritySystem.Model\AuthoritySystem.Model.csproj", "{BCC3E435-B527-4552-B32D-044F78C807E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthoritySystem.Model", "AuthoritySystem.Model\AuthoritySystem.Model.csproj", "{BCC3E435-B527-4552-B32D-044F78C807E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RepositoryLayer", "RepositoryLayer", "{B254189E-934E-4340-B116-CE2BA7231215}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthoritySystem.IRepository", "AuthoritySystem.IRepository\AuthoritySystem.IRepository.csproj", "{6C7ED5F0-00C3-43DA-8551-C3D09D3A89A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthoritySystem.IRepository", "AuthoritySystem.IRepository\AuthoritySystem.IRepository.csproj", "{6C7ED5F0-00C3-43DA-8551-C3D09D3A89A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthoritySystem.Repository", "AuthoritySystem.Repository\AuthoritySystem.Repository.csproj", "{D86FB350-5309-44D3-9BA6-D93A61309163}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthoritySystem.Repository", "AuthoritySystem.Repository\AuthoritySystem.Repository.csproj", "{D86FB350-5309-44D3-9BA6-D93A61309163}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLayer", "BusinessLayer", "{7EABEFE3-929F-4B61-B04F-8632C239FCE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthoritySystem.IService", "AuthoritySystem.IService\AuthoritySystem.IService.csproj", "{F5F48A34-82C6-478E-A892-93ED2E5FAA3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthoritySystem.IService", "AuthoritySystem.IService\AuthoritySystem.IService.csproj", "{F5F48A34-82C6-478E-A892-93ED2E5FAA3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthoritySystem.Service", "AuthoritySystem.Service\AuthoritySystem.Service.csproj", "{483F46EE-1735-44CB-84AA-E0B9C01E165D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthoritySystem.Service", "AuthoritySystem.Service\AuthoritySystem.Service.csproj", "{483F46EE-1735-44CB-84AA-E0B9C01E165D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccessLayer", "DataAccessLayer", "{1B9D415F-8B9A-4B03-9157-ED15E969D1FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthoritySystem.EFCore", "AuthoritySystem.EFCore\AuthoritySystem.EFCore.csproj", "{9F8B235D-11C8-4978-BEDD-52FF82066DB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthoritySystem.EFCore", "AuthoritySystem.EFCore\AuthoritySystem.EFCore.csproj", "{9F8B235D-11C8-4978-BEDD-52FF82066DB2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrameworkLayer", "FrameworkLayer", "{98F0FE34-7206-41E1-993E-CB19C8052672}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthoritySystem.Framework", "AuthoritySystem.Framework\AuthoritySystem.Framework.csproj", "{C8F52FD4-2EAD-4267-A34F-4C3F92ED6F6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthoritySystem.Framework", "AuthoritySystem.Framework\AuthoritySystem.Framework.csproj", "{C8F52FD4-2EAD-4267-A34F-4C3F92ED6F6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
