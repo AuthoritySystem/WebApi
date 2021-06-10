@@ -2,6 +2,8 @@
 using AuthoritySystem.Model.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using AuthoritySystem.Framework.Extensions;
+using AuthoritySystem.Framework.CommonHelper;
 
 namespace AuthoritySystem.WebApi.Builder
 {
@@ -12,6 +14,14 @@ namespace AuthoritySystem.WebApi.Builder
         public CoreServiceBuilder(IServiceCollection service)
         {
             _services = service;
+        }
+
+        /// <summary>
+        /// 批量注入服务
+        /// </summary>
+        public void AddAssembly()
+        {
+            _services.RegisterService(ServiceLifetime.Scoped, new string[] { "AuthoritySystem.Service", "AuthoritySystem.Repository" });
         }
 
         /// <summary>
@@ -30,6 +40,23 @@ namespace AuthoritySystem.WebApi.Builder
                     }, ServiceLifetime.Scoped);
                     break;
             }
+        }
+
+        public void AddOther()
+        {
+            #region 解决返回时间带T的问题
+            _services.AddControllers().AddJsonOptions(configure =>
+            {
+                configure.JsonSerializerOptions.Converters.Add(new DatetimeJsonConverterHelper());
+            });
+            #endregion
+
+            #region 设置返回的json首字母都是大写
+            _services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.PropertyNamingPolicy = null;
+            });
+            #endregion
         }
     }
 }

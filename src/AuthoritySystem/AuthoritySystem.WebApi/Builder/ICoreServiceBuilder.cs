@@ -11,5 +11,9 @@ namespace AuthoritySystem.WebApi.Builder
         /// 添加数据库连接配置
         /// </summary>
         void AddDbConfig();
+
+        void AddAssembly();
+
+        void AddOther();
     }
 }

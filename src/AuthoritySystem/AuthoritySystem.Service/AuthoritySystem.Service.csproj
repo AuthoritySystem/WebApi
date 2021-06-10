@@ -4,4 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AuthoritySystem.Framework\AuthoritySystem.Framework.csproj" />
+    <ProjectReference Include="..\AuthoritySystem.IRepository\AuthoritySystem.IRepository.csproj" />
+    <ProjectReference Include="..\AuthoritySystem.IService\AuthoritySystem.IService.csproj" />
+    <ProjectReference Include="..\AuthoritySystem.Model\AuthoritySystem.Model.csproj" />
+  </ItemGroup>
+
 </Project>

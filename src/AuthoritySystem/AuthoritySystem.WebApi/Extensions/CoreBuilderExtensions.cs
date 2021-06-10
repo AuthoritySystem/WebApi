@@ -17,6 +17,9 @@ namespace AuthoritySystem.WebApi.Extensions
             ICoreServiceBuilder servicebuilder = new CoreServiceBuilder(services);
             // 添加数据库
             servicebuilder.AddDbConfig();
+            // 依赖注入
+            servicebuilder.AddAssembly();
+            servicebuilder.AddOther();
         }
     }
 }
