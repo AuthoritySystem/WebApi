@@ -66,7 +66,7 @@ namespace AuthoritySystem.Framework.Extensions
             if (assembly != null)
             {
                 Type[] types = assembly.GetTypes();
-                foreach (var item in types.AsEnumerable().Where(x => !x.IsAbstract && !x.IsInterface && !x.IsGenericType))
+                foreach (var item in types.AsEnumerable().Where(x => !x.IsAbstract && !x.IsInterface && !x.IsGenericType && x.IsClass))
                 {
                     dic.Add(item, item.GetInterfaces().Where(x => !x.IsGenericType).ToList());
                 }

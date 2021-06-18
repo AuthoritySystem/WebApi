@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using AuthoritySystem.Framework.Extensions;
 using AuthoritySystem.Framework.CommonHelper;
+using AuthoritySystem.EFCore.Uow;
 
 namespace AuthoritySystem.WebApi.Builder
 {
@@ -57,6 +58,8 @@ namespace AuthoritySystem.WebApi.Builder
                 options.JsonSerializerOptions.PropertyNamingPolicy = null;
             });
             #endregion
+
+            _services.AddScoped<IUnitOfWork, UnitOfWork<AppDbContext>>();
         }
     }
 }
