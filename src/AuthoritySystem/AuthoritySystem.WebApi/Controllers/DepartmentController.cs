@@ -1,10 +1,8 @@
 ﻿using AuthoritySystem.Framework.CommonHelper;
 using AuthoritySystem.IService.Service;
 using AuthoritySystem.Model.ApiModel;
-using AuthoritySystem.Model.Dto.Response;
 using AuthoritySystem.Model.Entity;
 using AuthoritySystem.Model.Enum;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

@@ -20,10 +20,15 @@ namespace AuthoritySystem.Repository.Base
             _dbSet = dbSet;
         }
 
-        public async Task<int> AddAsync(T entity)
+        //public async Task<int> AddAsync(T entity)
+        //{
+        //    await _dbSet.AddAsync(entity);
+        //    return await _dbContext.SaveChangesAsync();
+        //}
+
+        public void Add(T entity)
         {
-            await _dbSet.AddAsync(entity);
-            return await _dbContext.SaveChangesAsync();
+            _dbSet.Add(entity);
         }
 
         public async Task<T> GetEntityAsync(Expression<Func<T, bool>> predicate)
@@ -31,7 +36,20 @@ namespace AuthoritySystem.Repository.Base
             return predicate != null ? await _dbSet.FirstOrDefaultAsync(predicate) : await _dbSet.FirstOrDefaultAsync();
         }
 
-        public Task<int> UpdateAsync(T entity, Expression<Func<T, object>>[] updatedProperties)
+        //public Task<int> UpdateAsync(T entity, Expression<Func<T, object>>[] updatedProperties)
+        //{
+        //    _dbContext.Set<T>().Attach(entity);
+        //    if (updatedProperties.Any())
+        //    {
+        //        foreach (var property in updatedProperties)
+        //        {
+        //            _dbContext.Entry(entity).Property(property).IsModified = true;
+        //        }
+        //    }
+        //    return _dbContext.SaveChangesAsync();
+        //}
+
+        public void Update(T entity, Expression<Func<T, object>>[] updatedProperties)
         {
             _dbContext.Set<T>().Attach(entity);
             if (updatedProperties.Any())
@@ -41,7 +59,6 @@ namespace AuthoritySystem.Repository.Base
                     _dbContext.Entry(entity).Property(property).IsModified = true;
                 }
             }
-            return _dbContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<T>> GetAllListAsync(Expression<Func<T, bool>> predicate)

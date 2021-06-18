@@ -15,7 +15,8 @@ namespace AuthoritySystem.IRepository.Base
         /// 新增
         /// </summary>
         /// <param name="entity"></param>
-        Task<int> AddAsync(TEntity entity);
+        // Task<int> AddAsync(TEntity entity);
+        void Add(TEntity entity);
 
 
         /// <summary>
@@ -23,7 +24,8 @@ namespace AuthoritySystem.IRepository.Base
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        Task<int> UpdateAsync(TEntity entity, Expression<Func<TEntity, object>>[] updatedProperties);
+        // Task<int> UpdateAsync(TEntity entity, Expression<Func<TEntity, object>>[] updatedProperties);
+        void Update(TEntity entity, Expression<Func<TEntity, object>>[] updatedProperties);
 
         /// <summary>
         /// 获取单个实体（条件）

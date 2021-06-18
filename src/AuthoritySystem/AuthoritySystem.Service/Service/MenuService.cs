@@ -1,4 +1,5 @@
-﻿using AuthoritySystem.Framework.CommonHelper;
+﻿using AuthoritySystem.EFCore.Uow;
+using AuthoritySystem.Framework.CommonHelper;
 using AuthoritySystem.IRepository.Repository;
 using AuthoritySystem.IService.Service;
 using AuthoritySystem.Model.Entity;
@@ -13,10 +14,12 @@ namespace AuthoritySystem.Service.Service
     public class MenuService : IMenuService
     {
         private readonly IMenuRepository _repository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public MenuService(IMenuRepository repository)
+        public MenuService(IMenuRepository repository, IUnitOfWork unitOfWork)
         {
             _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
 
@@ -26,7 +29,9 @@ namespace AuthoritySystem.Service.Service
             entity.CreateUser = entity.UpdateUser = "admin";
 
             // 保存数据
-            int rows = await _repository.AddAsync(entity);
+            _repository.Add(entity);
+            // 保存数据
+            int rows = await _unitOfWork.SaveChangesAsync();
             if (rows > 0)
             {
                 validateResult.ValidateCode = (int)CustomerCode.Success;
@@ -56,7 +61,8 @@ namespace AuthoritySystem.Service.Service
                 p=>p.UpdateUser
             };
 
-            int rows = await _repository.UpdateAsync(entity, updatedProperties);
+            _repository.Update(entity, updatedProperties);
+            int rows = await _unitOfWork.SaveChangesAsync();
             if (rows > 0)
             {
                 validateResult.ValidateCode = (int)CustomerCode.Success;
@@ -93,7 +99,8 @@ namespace AuthoritySystem.Service.Service
             };
 
             // 保存数据
-            int rows = await _repository.UpdateAsync(entity, updatedProperties);
+            _repository.Update(entity, updatedProperties);
+            int rows = await _unitOfWork.SaveChangesAsync();
             if (rows > 0)
             {
                 validateResult.ValidateCode = (int)CustomerCode.Success;

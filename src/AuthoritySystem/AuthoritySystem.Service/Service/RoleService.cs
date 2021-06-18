@@ -1,4 +1,5 @@
-﻿using AuthoritySystem.Framework.CommonHelper;
+﻿using AuthoritySystem.EFCore.Uow;
+using AuthoritySystem.Framework.CommonHelper;
 using AuthoritySystem.IRepository.Repository;
 using AuthoritySystem.IService.Service;
 using AuthoritySystem.Model.Dto.Response;
@@ -14,10 +15,12 @@ namespace AuthoritySystem.Service.Service
     public class RoleService : IRoleService
     {
         private readonly IRoleRepository _repository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public RoleService(IRoleRepository repository)
+        public RoleService(IRoleRepository repository, IUnitOfWork unitOfWork)
         {
             _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
 
@@ -25,8 +28,9 @@ namespace AuthoritySystem.Service.Service
         {
             ValidateResult validateResult = new ValidateResult();
             entity.CreateUser = entity.UpdateUser = "admin";
+            _repository.Add(entity);
             // 保存数据
-            int rows = await _repository.AddAsync(entity);
+            int rows = await _unitOfWork.SaveChangesAsync();
             if (rows > 0)
             {
                 validateResult.ValidateCode = (int)CustomerCode.Success;
@@ -56,7 +60,8 @@ namespace AuthoritySystem.Service.Service
                 p=>p.UpdateUser
             };
 
-            int rows = await _repository.UpdateAsync(entity, updatedProperties);
+            _repository.Update(entity, updatedProperties);
+            int rows = await _unitOfWork.SaveChangesAsync();
             if (rows > 0)
             {
                 validateResult.ValidateCode = (int)CustomerCode.Success;
@@ -96,9 +101,10 @@ namespace AuthoritySystem.Service.Service
                 p=>p.UpdateTime,
                 p=>p.UpdateUser
             };
-         
+
             // 保存数据
-            int rows = await _repository.UpdateAsync(entity, updatedProperties);
+            _repository.Update(entity, updatedProperties);
+            int rows = await _unitOfWork.SaveChangesAsync();
             if (rows > 0)
             {
                 validateResult.ValidateCode = (int)CustomerCode.Success;

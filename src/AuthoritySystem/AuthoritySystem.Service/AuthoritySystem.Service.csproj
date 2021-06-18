@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AuthoritySystem.EFCore\AuthoritySystem.EFCore.csproj" />
     <ProjectReference Include="..\AuthoritySystem.Framework\AuthoritySystem.Framework.csproj" />
     <ProjectReference Include="..\AuthoritySystem.IRepository\AuthoritySystem.IRepository.csproj" />
     <ProjectReference Include="..\AuthoritySystem.IService\AuthoritySystem.IService.csproj" />
