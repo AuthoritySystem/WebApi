@@ -4,24 +4,24 @@ using AuthoritySystem.Model.ApiModel;
 using AuthoritySystem.Model.Dto.Request;
 using AuthoritySystem.Model.Entity;
 using AuthoritySystem.Model.Enum;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
 namespace AuthoritySystem.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class LoginController : ControllerBase
     {
         private readonly ILoginService _loginService;
+        // 使用Serilog
+        private readonly ILogger<LoginController> _logger;
 
-        public LoginController(ILoginService loginService)
+        public LoginController(ILoginService loginService, ILogger<LoginController> logger)
         {
             _loginService = loginService;
+            _logger = logger;
         }
 
         [HttpPost]
@@ -36,6 +36,8 @@ namespace AuthoritySystem.WebApi.Controllers
             if (value == 1)
             {
                 result.Code = (int)CustomerCode.Success;
+                // 登录成功，记录日志
+                _logger.LogInformation("登录成功");
             }
             else
             {
