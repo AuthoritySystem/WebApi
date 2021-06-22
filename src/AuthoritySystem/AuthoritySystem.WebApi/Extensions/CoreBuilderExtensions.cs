@@ -20,6 +20,7 @@ namespace AuthoritySystem.WebApi.Extensions
             // 依赖注入
             servicebuilder.AddAssembly();
             servicebuilder.AddOther();
+            servicebuilder.AddFilter();
         }
     }
 }

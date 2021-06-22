@@ -35,7 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrameworkLayer", "Framework
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthoritySystem.Framework", "AuthoritySystem.Framework\AuthoritySystem.Framework.csproj", "{C8F52FD4-2EAD-4267-A34F-4C3F92ED6F6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthoritySystem.Test", "AuthoritySystem.Test\AuthoritySystem.Test.csproj", "{2E8B453E-837D-4529-BABB-7486E3F053B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthoritySystem.Test", "AuthoritySystem.Test\AuthoritySystem.Test.csproj", "{2E8B453E-837D-4529-BABB-7486E3F053B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

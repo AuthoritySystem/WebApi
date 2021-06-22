@@ -15,5 +15,8 @@ namespace AuthoritySystem.WebApi.Builder
         void AddAssembly();
 
         void AddOther();
+
+        // 添加过滤器
+        void AddFilter();
     }
 }

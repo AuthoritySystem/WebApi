@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using AuthoritySystem.Framework.Extensions;
 using AuthoritySystem.Framework.CommonHelper;
 using AuthoritySystem.EFCore.Uow;
+using AuthoritySystem.WebApi.Filter;
 
 namespace AuthoritySystem.WebApi.Builder
 {
@@ -41,6 +42,12 @@ namespace AuthoritySystem.WebApi.Builder
                     }, ServiceLifetime.Scoped);
                     break;
             }
+        }
+
+        public void AddFilter()
+        {
+            // 添加全局异常过滤器
+            _services.AddControllers(options => options.Filters.Add(typeof(CustomerGlobalExceptionFilterAsync)));
         }
 
         public void AddOther()
