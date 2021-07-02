@@ -22,9 +22,8 @@ namespace AuthoritySystem.WebApi.Controllers
             _service = service;
         }
 
-        [HttpPost]
-        [Route("GetList")]
-        public async Task<ActionResult<ApiResponseWithData<List<TB_Department>>>> GetList([FromBody] PagingRequest pagingRequest)
+        [HttpGet]
+        public async Task<ActionResult<ApiResponseWithData<List<TB_Department>>>> GetList()
         {
             ApiResponseWithData<List<TB_Department>> result = new ApiResponseWithData<List<TB_Department>>();
             IEnumerable<TB_Department> dto = await _service.GetAllListAsync(null);

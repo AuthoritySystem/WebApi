@@ -27,7 +27,7 @@ namespace AuthoritySystem.WebApi.Controllers
         /// <summary>
         /// 获取用户信息
         /// </summary>
-        /// <param name="searchRequestDto"></param>
+        /// <param name="requestDto"></param>
         /// <returns></returns>
         [HttpPost]
         [Route("getlist")]

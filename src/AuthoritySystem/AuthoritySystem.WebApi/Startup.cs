@@ -10,7 +10,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace AuthoritySystem.WebApi
@@ -32,9 +34,21 @@ namespace AuthoritySystem.WebApi
             #endregion
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(options =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AuthoritySystem.WebApi", Version = "v1" });
+                //c.SwaggerDoc("v1", new OpenApiInfo { Title = "AuthoritySystem.WebApi", Version = "v1" });
+
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "权限管理后台服务", Description = "基于.net core的web API接口", Version = "v1" });
+                // 获取xml文件名
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                // 获取xml文件路径
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                // 添加控制器层注释，true表示显示控制器注释
+                options.IncludeXmlComments(xmlPath, true);
+
+                // 显示Model层注释
+                //var modelPath = Path.Combine(AppContext.BaseDirectory, "Hicore.Crm.Model.xml");
+                //options.IncludeXmlComments(modelPath, true);
             });
 
             #region 扩展方法
@@ -48,9 +62,11 @@ namespace AuthoritySystem.WebApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AuthoritySystem.WebApi v1"));
+
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AuthoritySystem.WebApi v1"));
 
             app.UseRouting();
 

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AuthoritySystem.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:AuthoritySystem.WebApi.Builder.CoreServiceBuilder.AddAssembly">
+            <summary>
+            批量注入服务
+            </summary>
+        </member>
+        <member name="M:AuthoritySystem.WebApi.Builder.CoreServiceBuilder.AddDbConfig">
+            <summary>
+            添加数据库连接
+            </summary>
+        </member>
+        <member name="M:AuthoritySystem.WebApi.Builder.ICoreServiceBuilder.AddDbConfig">
+            <summary>
+            添加数据库连接配置
+            </summary>
+        </member>
+        <member name="M:AuthoritySystem.WebApi.Controllers.UserController.Getlist(AuthoritySystem.Model.Dto.Request.UserRequestDto)">
+            <summary>
+            获取用户信息
+            </summary>
+            <param name="requestDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthoritySystem.WebApi.Controllers.UserController.Post(AuthoritySystem.Model.Entity.TB_User)">
+            <summary>
+            新增用户
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthoritySystem.WebApi.Controllers.UserController.Put(AuthoritySystem.Model.Entity.TB_User)">
+            <summary>
+            修改用户信息
+            </summary>
+            <param name="user">用户实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthoritySystem.WebApi.Controllers.UserController.Delete(System.Guid)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="id">用户id</param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthoritySystem.WebApi.Extensions.CoreBuilderExtensions.AddCoreServiceProvider(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            注册服务到依赖注入容器
+            </summary>
+            <param name="services"></param>
+            <param name="configuration">配置信息</param>
+        </member>
+        <member name="T:AuthoritySystem.WebApi.Filter.CustomerGlobalExceptionFilterAsync">
+            <summary>
+            全局异常过滤器
+            </summary>
+        </member>
+        <member name="F:AuthoritySystem.WebApi.Filter.CustomerGlobalExceptionFilterAsync._logger">
+            <summary>
+            日志
+            </summary>
+        </member>
+        <member name="M:AuthoritySystem.WebApi.Filter.CustomerGlobalExceptionFilterAsync.OnExceptionAsync(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            处理异常
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
