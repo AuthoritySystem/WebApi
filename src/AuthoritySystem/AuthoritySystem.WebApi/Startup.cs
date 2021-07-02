@@ -29,7 +29,7 @@ namespace AuthoritySystem.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            #region ³õÊ¼»¯ÅäÖÃĞÅÏ¢
+            #region åˆå§‹åŒ–é…ç½®ä¿¡æ¯
             Appsettings.Instance().Initaial(Configuration);
             #endregion
 
@@ -38,20 +38,20 @@ namespace AuthoritySystem.WebApi
             {
                 //c.SwaggerDoc("v1", new OpenApiInfo { Title = "AuthoritySystem.WebApi", Version = "v1" });
 
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "È¨ÏŞ¹ÜÀíºóÌ¨·şÎñ", Description = "»ùÓÚ.net coreµÄweb API½Ó¿Ú", Version = "v1" });
-                // »ñÈ¡xmlÎÄ¼şÃû
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "æƒé™ç®¡ç†åå°æœåŠ¡", Description = "åŸºäº.net coreçš„web APIæ¥å£", Version = "v1" });
+                // è·å–xmlæ–‡ä»¶å
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                // »ñÈ¡xmlÎÄ¼şÂ·¾¶
+                // è·å–xmlæ–‡ä»¶è·¯å¾„
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                // Ìí¼Ó¿ØÖÆÆ÷²ã×¢ÊÍ£¬true±íÊ¾ÏÔÊ¾¿ØÖÆÆ÷×¢ÊÍ
+                // æ·»åŠ æ§åˆ¶å™¨å±‚æ³¨é‡Šï¼Œtrueè¡¨ç¤ºæ˜¾ç¤ºæ§åˆ¶å™¨æ³¨é‡Š
                 options.IncludeXmlComments(xmlPath, true);
 
-                // ÏÔÊ¾Model²ã×¢ÊÍ
-                //var modelPath = Path.Combine(AppContext.BaseDirectory, "Hicore.Crm.Model.xml");
-                //options.IncludeXmlComments(modelPath, true);
+                // æ˜¾ç¤ºModelå±‚æ³¨é‡Š
+                var modelPath = Path.Combine(AppContext.BaseDirectory, "AuthoritySystem.Model.xml");
+                options.IncludeXmlComments(modelPath, true);
             });
 
-            #region À©Õ¹·½·¨
+            #region æ‰©å±•æ–¹æ³•
             services.AddCoreServiceProvider(Configuration);
             #endregion
         }
