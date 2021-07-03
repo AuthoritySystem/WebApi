@@ -12,6 +12,6 @@ namespace AuthoritySystem.WebApi
 
         public string Summary { get; set; }
 
-        public string TestMsg => "²âÊÔWebHook";
+        public string TestMsg => "Test WebHook";
     }
 }
