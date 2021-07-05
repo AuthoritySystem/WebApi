@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace AuthoritySystem.WebApi.Controllers
@@ -24,11 +25,11 @@ namespace AuthoritySystem.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("GetList")]
-        public async Task<ActionResult<ApiResponseWithData<List<TB_Menu>>>> GetList()
+        public async Task<ActionResult<ApiResponseWithData<List<TB_Menu>>>> Get()
         {
             ApiResponseWithData<List<TB_Menu>> result = new ApiResponseWithData<List<TB_Menu>>();
-            var list = await _service.GetAllListAsync(null);
+            Expression<Func<TB_Menu, bool>> func = p => p.IsDeleted == (int)DeleteFlag.NotDeleted;
+            var list = await _service.GetAllListAsync(func);
             if(null != list)
             {
                 result.Code = (int)CustomerCode.Success;
